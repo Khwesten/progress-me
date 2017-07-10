@@ -1,5 +1,9 @@
 <?php
 
+$app->get('/', function ($request, $response, $args) {
+    echo "PROGRESS ME API";
+});
+
 $app->post('/query/select', function ($request, $response, $args) {
     $query = $request->getParsedBody()['query'];
 

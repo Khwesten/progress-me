@@ -5,7 +5,7 @@
     "authors": [
         {
             "name": "Khwesten Heiner",
-            "email": "k-heiner@hotmail.com  ",
+            "email": "k-heiner@hotmail.com",
             "homepage": "https://khwesten.github.io/#/en"
         }
     ],
@@ -14,5 +14,14 @@
         "slim/slim": "^3.1",
         "slim/php-view": "^2.0",
         "monolog/monolog": "^1.17"
+    },
+    "autoload": {
+        "psr-4": {
+            "controller\\": "controller/",
+            "utils\\": "utils/",
+            "dao\\": "dao/",
+            "service\\": "service/",
+            "config\\": "config/"
+        }
     }
 }

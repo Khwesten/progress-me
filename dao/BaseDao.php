@@ -2,7 +2,7 @@
 
 namespace dao;
 
-class Base
+class BaseDao
 {
     public static function checkHasError($connection, $statement)
     {

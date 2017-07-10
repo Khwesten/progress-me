@@ -2,6 +2,8 @@
 
 namespace dao;
 
+use \utils\ConnectionFactory;
+
 class QueryDao
 {
 
@@ -9,7 +11,7 @@ class QueryDao
 
     public function __construct()
     {
-        $connectionFactory = new \utils\ConnectionFactory();
+        $connectionFactory = new ConnectionFactory();
 
         $this->connection = $connectionFactory->getConnection();
 
@@ -23,7 +25,7 @@ class QueryDao
 
         $statement = $connection->prepare($sql);
 
-        \dao\Base::checkHasError($connection, $statement);
+        BaseDao::checkHasError($connection, $statement);
 
         $statement->execute();
 
@@ -49,7 +51,7 @@ class QueryDao
 
         $statement->nextRowset();
 
-        \dao\Base::checkHasError($connection, $statement);
+        BaseDao::checkHasError($connection, $statement);
 
         $connection->commit();
 
