@@ -4,11 +4,6 @@ namespace utils;
 
 use config\Database as Database;
 
-/**
- * Description of ConnectionFactory
- *
- * @author k-heiner@hotmail.com
- */
 class ConnectionFactory {
 
     public $con = null;

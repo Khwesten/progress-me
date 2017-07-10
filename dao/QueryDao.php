@@ -2,16 +2,13 @@
 
 namespace dao;
 
-/**
- * Description of Query
- *
- * @author k-heiner@hotmail.com
- */
-class Query {
+class QueryDao
+{
 
     private $connection;
 
-    public function __construct() {
+    public function __construct()
+    {
         $connectionFactory = new \utils\ConnectionFactory();
 
         $this->connection = $connectionFactory->getConnection();
@@ -19,7 +16,8 @@ class Query {
         $this->connection->beginTransaction();
     }
 
-    public function select($sql) {
+    public function select($sql)
+    {
 
         $connection = $this->connection;
 
@@ -40,7 +38,8 @@ class Query {
         return $arrayResult;
     }
 
-    public function interact($sql) {
+    public function interact($sql)
+    {
 
         $connection = $this->connection;
 

@@ -2,13 +2,10 @@
 
 namespace dao;
 
-/**
- * Description of BaseDAO
- *
- * @author k-heiner@hotmail.com
- */
-class Base {
-    public static function checkHasError($connection, $statement) {
+class Base
+{
+    public static function checkHasError($connection, $statement)
+    {
 
         $error = $statement->errorInfo();
 
@@ -18,11 +15,12 @@ class Base {
         }
     }
 
-    private static function createMessageError($statement) {
+    private static function createMessageError($statement)
+    {
         $messageError = [
-            "state"    => $statement->errorInfo()[0],
-            "code"     => $statement->errorInfo()[1],
-            "message"  => $statement->errorInfo()[2]
+            "state" => $statement->errorInfo()[0],
+            "code" => $statement->errorInfo()[1],
+            "message" => $statement->errorInfo()[2]
         ];
 
         $jsonMessage = json_encode($messageError);

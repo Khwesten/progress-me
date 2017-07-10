@@ -1,37 +1,15 @@
 <?php
 
-namespace controller;
+namespace service;
 
-use utils\Constants as Constants;
-
-/**
- * Description of Query
- *
- * @author k-heiner@hotmail.com
- */
-class Query {
-
-    public static function select($query) {
-        return self::templateQuery($query, Constants::SELECT);
-    }
-
-    public static function insert($query) {
-        return self::templateQuery($query, Constants::INSERT);
-    }
-
-    public static function update($query) {
-        return self::templateQuery($query, Constants::UPDATE);
-    }
-
-    public static function delete($query) {
-        return self::templateQuery($query, Constants::DELETE);
-    }
-
-    private static function templateQuery($query, $method) {
+class QueryService
+{
+    public static function templateQuery($query, $method)
+    {
 
         $query = str_replace('"', "'", $query);
 
-        $queryDAO = new \dao\Query();
+        $queryDAO = new \dao\QueryDao();
 
         $hasOnlyMethod = self::checkURLHasOnlyMethod($method, $query);
 
@@ -54,7 +32,8 @@ class Query {
         return $jsonResult;
     }
 
-    private static function convertMessageInteract($hasAlterationInteger, $method) {
+    private static function convertMessageInteract($hasAlterationInteger, $method)
+    {
         $hasAlteration = filter_var($hasAlterationInteger, FILTER_VALIDATE_BOOLEAN);
 
         $arrayMessage = ["message" => ""];
@@ -68,9 +47,8 @@ class Query {
         return $arrayMessage;
     }
 
-    private static function checkURLHasOnlyMethod($method, $query) {
-        $hasOnlyTypeMethod = true;
-
+    private static function checkURLHasOnlyMethod($method, $query)
+    {
         $query = strtolower($query);
 
         if (strstr($query, strtolower($method))) {
@@ -82,7 +60,8 @@ class Query {
         return $hasOnlyTypeMethod;
     }
 
-    private function checkHasOthersMethods($typeMethod, $query) {
+    private function checkHasOthersMethods($typeMethod, $query)
+    {
         $methods = Constants::$methods;
         unset($methods[$typeMethod]);
         $othersMethod = $methods;

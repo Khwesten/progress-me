@@ -2,7 +2,8 @@
 
 namespace config;
 
-class Database {
+class Database
+{
     const DRIVER = "mysql";
     const HOST = "localhost";
     const NAME = "progress_me";

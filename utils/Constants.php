@@ -2,11 +2,6 @@
 
 namespace utils;
 
-/**
- * Description of Constants
- *
- * @author k-heiner@hotmail.com
- */
 class Constants {
     const SELECT = "SELECT";
     const INSERT = "INSERT";
